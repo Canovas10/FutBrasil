@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutBrasil | Camisas de Futebol</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="aviso">FUTEBOL É A NOSSA LÍNGUA</div>
+
+    <header class="cabecalho">
+        <a class="logo" href="#inicio">F+ <span>FUTBRASIL</span></a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">☰</button>
+        <nav id="nav">
+            <a href="#inicio">Início</a>
+            <a href="#colecao">Camisas</a>
+            <a href="#ia">Simulador IA</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#sobre">Sobre</a>
+        </nav>
+        <div class="acoes">
+            <button id="dark-mode" class="botao-secundario">Modo escuro</button>
+            <button class="botao-secundario" id="open-account">Entrar / Criar conta</button>
+            <button class="botao-carrinho" id="open-cart">Sacola <span id="cart-count">0</span></button>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner" id="inicio">
+            <div>
+                <p class="etiqueta">PAIXÃO QUE VESTE</p>
+                <h1>Vista as cores<br>do seu time.</h1>
+                <p>Camisas dos grandes clubes do futebol brasileiro.</p>
+                <a class="botao-principal" href="#colecao">VER CAMISAS</a>
+            </div>
+            <div class="banner-simbolo">F+</div>
+        </section>
+
+        <section class="secao" id="colecao">
+            <div class="titulo-secao">
+                <div>
+                    <p class="etiqueta">ESCOLHA O SEU MANTO</p>
+                    <h2>Camisas em destaque</h2>
+                </div>
+                <p><strong id="product-total">8</strong> modelos</p>
+            </div>
+
+            <div class="filtros">
+                <input id="search" type="search" placeholder="Buscar time, camisa ou marca..." aria-label="Buscar produtos">
+                <select id="sort" aria-label="Ordenar produtos">
+                    <option value="featured">Em destaque</option>
+                    <option value="low">Menor preço</option>
+                    <option value="high">Maior preço</option>
+                </select>
+            </div>
+
+            <div class="club-list" id="club-list">
+                <button class="club-chip selected" data-team="">Todos</button>
+                <button class="club-chip" data-team="Palmeiras">Palmeiras</button>
+                <button class="club-chip" data-team="Corinthians">Corinthians</button>
+                <button class="club-chip" data-team="São Paulo">São Paulo</button>
+                <button class="club-chip" data-team="Flamengo">Flamengo</button>
+                <button class="club-chip" data-team="Santos">Santos</button>
+                <button class="club-chip" data-team="Grêmio">Grêmio</button>
+                <button class="club-chip" data-team="Internacional">Internacional</button>
+                <button class="club-chip" data-team="Vasco">Vasco</button>
+                <button class="limpar" id="reset">Limpar filtros</button>
+            </div>
+
+            <div class="products" id="products"></div>
+            <p class="empty hidden" id="empty">Não encontramos camisas com essa busca.</p>
+        </section>
+
+        <section class="secao ferramenta" id="ia">
+            <p class="etiqueta">FERRAMENTA DEMONSTRATIVA</p>
+            <h2>Simulador de IA</h2>
+            <p>Escolha seu clube e receba uma sugestão de camisa. Esta é uma simulação feita com JavaScript, não uma inteligência artificial real.</p>
+            <div class="linha-ferramenta">
+                <select id="ia-clube" aria-label="Escolha seu clube">
+                    <option value="">Escolha um clube</option>
+                    <option>Palmeiras</option><option>Corinthians</option>
+                    <option>São Paulo</option><option>Flamengo</option>
+                    <option>Santos</option><option>Grêmio</option>
+                    <option>Internacional</option><option>Vasco</option>
+                </select>
+                <button class="botao-principal" id="ia-botao">GERAR SUGESTÃO</button>
+            </div>
+            <p id="ia-resultado" class="resultado">Sua sugestão aparecerá aqui.</p>
+        </section>
+
+        <section class="secao ferramenta" id="quiz">
+            <p class="etiqueta">TESTE SEUS CONHECIMENTOS</p>
+            <h2>Quiz de futebol</h2>
+            <p>Responda às três perguntas e veja quantas acertou.</p>
+            <form id="quiz-form">
+                <div class="pergunta">
+                    <p>1. Quantos jogadores de cada time começam uma partida em campo?</p>
+                    <label><input type="radio" name="q1" value="10"> 10</label>
+                    <label><input type="radio" name="q1" value="11"> 11</label>
+                    <label><input type="radio" name="q1" value="12"> 12</label>
+                </div>
+                <div class="pergunta">
+                    <p>2. Qual seleção venceu a Copa do Mundo de 2002?</p>
+                    <label><input type="radio" name="q2" value="Brasil"> Brasil</label>
+                    <label><input type="radio" name="q2" value="Alemanha"> Alemanha</label>
+                    <label><input type="radio" name="q2" value="Argentina"> Argentina</label>
+                </div>
+                <div class="pergunta">
+                    <p>3. Qual destes clubes é conhecido como Timão?</p>
+                    <label><input type="radio" name="q3" value="Santos"> Santos</label>
+                    <label><input type="radio" name="q3" value="Corinthians"> Corinthians</label>
+                    <label><input type="radio" name="q3" value="Vasco"> Vasco</label>
+                </div>
+                <button class="botao-principal" type="submit">VER RESULTADO</button>
+            </form>
+            <p id="quiz-resultado" class="resultado"></p>
+        </section>
+
+        <section class="secao clubes" id="clubes">
+            <p class="etiqueta">A HISTÓRIA CONTINUA</p>
+            <h2>Grandes clubes. Uma só paixão.</h2>
+            <p>Explore os sites oficiais dos clubes.</p>
+            <div class="clubes-links">
+                <a href="https://www.palmeiras.com.br/" target="_blank" rel="noopener noreferrer">Palmeiras ↗</a>
+                <a href="https://www.corinthians.com.br/" target="_blank" rel="noopener noreferrer">Corinthians ↗</a>
+                <a href="https://www.saopaulofc.net/" target="_blank" rel="noopener noreferrer">São Paulo ↗</a>
+                <a href="https://www.flamengo.com.br/" target="_blank" rel="noopener noreferrer">Flamengo ↗</a>
+                <a href="https://www.santosfc.com.br/" target="_blank" rel="noopener noreferrer">Santos ↗</a>
+                <a href="https://gremio.net/" target="_blank" rel="noopener noreferrer">Grêmio ↗</a>
+                <a href="https://www.internacional.com.br/" target="_blank" rel="noopener noreferrer">Internacional ↗</a>
+                <a href="https://vasco.com.br/" target="_blank" rel="noopener noreferrer">Vasco ↗</a>
+            </div>
+        </section>
+
+        <section class="secao sobre" id="sobre">
+            <p class="etiqueta">SOBRE A FUTBRASIL</p>
+            <h2>Feito por quem ama futebol.</h2>
+            <p>A FutBrasil é um projeto escolar demonstrativo sobre camisas de clubes brasileiros. Os preços são ilustrativos e nenhuma compra real é realizada pelo site.</p>
+        </section>
+    </main>
+
+    <footer>
+        <a class="logo" href="#inicio">F+ <span>FUTBRASIL</span></a>
+        <p>Projeto escolar • Não realizamos vendas reais • © 2026</p>
+    </footer>
+
+    <div class="overlay" id="overlay"></div>
+    <aside class="cart-drawer" id="cart-drawer" aria-label="Sacola de compras">
+        <div class="cart-header">
+            <h2>Sua sacola</h2>
+            <button id="close-cart" class="fechar" aria-label="Fechar sacola">×</button>
+        </div>
+        <div id="cart-items" class="cart-items"></div>
+        <p id="cart-empty" class="cart-empty">Sua sacola está vazia.</p>
+        <div id="cart-bottom" class="cart-bottom">
+            <div class="subtotal"><span>Subtotal</span><strong id="subtotal">R$ 0,00</strong></div>
+            <p class="nota">Valores ilustrativos. Nenhum pagamento será feito.</p>
+            <button id="checkout" class="botao-principal largura-total">FINALIZAR DEMONSTRAÇÃO</button>
+            <button id="continue-shopping" class="continuar">Continuar escolhendo</button>
+        </div>
+    </aside>
+    <div class="toast" id="toast" role="status"></div>
+
+    <!-- Janela demonstrativa de login e cadastro -->
+    <div class="account-backdrop" id="account-backdrop">
+        <section class="account-modal" role="dialog" aria-modal="true" aria-labelledby="account-title">
+            <button class="fechar account-close" id="close-account" aria-label="Fechar">×</button>
+            <p class="etiqueta">BEM-VINDO À FUTBRASIL</p>
+            <h2 id="account-title">Entrar na conta</h2>
+            <div class="account-tabs">
+                <button type="button" id="login-tab" class="account-tab active">Entrar</button>
+                <button type="button" id="register-tab" class="account-tab">Criar conta</button>
+            </div>
+            <form id="account-form">
+                <label id="name-field" class="hidden">Nome
+                    <input id="account-name" type="text" placeholder="Seu nome">
+                </label>
+                <label>E-mail
+                    <input id="account-email" type="email" placeholder="seuemail@exemplo.com" required>
+                </label>
+                <label>Senha
+                    <input id="account-password" type="password" placeholder="Digite uma senha" minlength="4" required>
+                </label>
+                <button class="botao-principal largura-total" type="submit" id="account-submit">ENTRAR</button>
+            </form>
+            <p class="account-note">Demonstração escolar: os dados não são enviados nem salvos.</p>
+        </section>
+    </div>
+
+    <!-- Banner flutuante que pode ser fechado -->
+    <aside class="banner-flutuante" id="floating-banner">
+        <button id="close-floating-banner" aria-label="Fechar banner">×</button>
+        <strong>⚽ CHEGOU A FUTBRASIL!</strong>
+        <p>CONFIRA OS MODELOS DE UNIFORME E ENCONTRE O O MANTO DO DEU TIME.</p>
+        <a href="#colecao" id="floating-banner-link">VER MANTOS</a>
+    </aside>
+</body>
+</html>

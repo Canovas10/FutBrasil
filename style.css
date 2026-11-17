@@ -1,0 +1,220 @@
+/* Estilo simples da FutBrasil */
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f5f1;
+    color: #20251e;
+}
+button, input, select { font: inherit; }
+button, a { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+.aviso {
+    padding: 9px;
+    text-align: center;
+    background: #b7ff32;
+    color: #101510;
+    font-size: 12px;
+    font-weight: bold;
+}
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 6%;
+    background: #111710;
+    color: white;
+}
+.logo { font-size: 25px; font-weight: bold; color: #b7ff32; }
+.logo span { font-size: 15px; color: white; }
+nav, .acoes { display: flex; align-items: center; gap: 18px; }
+nav a:hover { color: #b7ff32; }
+.acoes { gap: 10px; }
+.botao-secundario, .botao-carrinho {
+    padding: 10px 13px;
+    border: 1px solid #b7ff32;
+    background: transparent;
+    color: white;
+}
+.botao-carrinho span { color: #b7ff32; }
+.menu-toggle { display: none; }
+.banner {
+    min-height: 340px;
+    padding: 65px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #172317;
+    color: white;
+}
+.banner h1 { margin: 10px 0; font-size: clamp(38px, 6vw, 65px); }
+.banner h1, h2 { line-height: 1.1; }
+.banner-simbolo { font-size: 100px; font-weight: bold; color: #b7ff32; }
+.etiqueta { color: #679d25; font-size: 12px; font-weight: bold; letter-spacing: 1px; }
+.botao-principal {
+    display: inline-block;
+    padding: 13px 18px;
+    border: 0;
+    background: #b7ff32;
+    color: #111710;
+    font-weight: bold;
+}
+.secao { padding: 55px 8%; }
+.titulo-secao { display: flex; justify-content: space-between; align-items: end; gap: 15px; }
+h2 { font-size: 32px; }
+.filtros { display: flex; gap: 12px; margin: 25px 0 18px; }
+.filtros input, .filtros select, .linha-ferramenta select {
+    padding: 12px;
+    border: 1px solid #c9cec3;
+    background: white;
+    color: #20251e;
+}
+.filtros input { flex: 1; }
+.club-list { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 22px; }
+.club-chip, .limpar {
+    padding: 9px 12px;
+    border: 1px solid #aeb5a8;
+    background: white;
+}
+.club-chip.selected { background: #b7ff32; border-color: #b7ff32; }
+.limpar { color: #416b12; }
+.products { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.product-card { overflow: hidden; background: white; border: 1px solid #dce0d8; }
+.product-photo { position: relative; height: 220px; background: #e8ece4; }
+.shirt-art { width: 100%; height: 100%; padding: 15px; object-fit: contain; }
+.product-tag { position: absolute; top: 10px; left: 10px; padding: 5px 7px; background: #b7ff32; font-size: 11px; }
+.favorite { position: absolute; top: 8px; right: 8px; border: 0; background: white; font-size: 20px; }
+.favorite.active { color: #e12645; }
+.product-info { padding: 14px; }
+.product-team { color: #568b1c; font-size: 12px; font-weight: bold; }
+.product-info h3 { min-height: 35px; margin: 8px 0; }
+.product-meta, .product-price small { color: #687064; font-size: 12px; }
+.product-bottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 15px; }
+.product-price { font-weight: bold; }
+.product-price small { display: block; margin-top: 5px; font-weight: normal; }
+.add-button { padding: 9px; border: 0; background: #b7ff32; font-size: 11px; font-weight: bold; }
+.official-link { display: block; margin-top: 14px; color: #527d20; font-size: 12px; }
+.hidden { display: none; }
+.empty { padding: 20px; text-align: center; }
+.ferramenta { background: #e8ece4; }
+.ferramenta > p { max-width: 650px; }
+.linha-ferramenta { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0; }
+.resultado { padding: 12px; background: white; border-left: 4px solid #b7ff32; }
+.pergunta { margin: 18px 0; padding: 15px; background: white; }
+.pergunta p { font-weight: bold; }
+.pergunta label { display: inline-block; margin: 7px 15px 7px 0; }
+.clubes { background: #b7ff32; }
+.clubes-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.clubes-links a { padding: 10px 13px; border: 1px solid #6d9e27; }
+.sobre { background: white; }
+footer { display: flex; justify-content: space-between; align-items: center; gap: 15px; padding: 25px 8%; background: #111710; color: white; }
+.overlay { display: none; position: fixed; inset: 0; background: #0009; z-index: 5; }
+.overlay.show { display: block; }
+.cart-drawer {
+    position: fixed; z-index: 6; top: 0; right: -420px; width: min(400px, 100%);
+    height: 100vh; padding: 22px; display: flex; flex-direction: column;
+    background: white; color: #20251e; transition: right .25s;
+}
+.cart-drawer.open { right: 0; }
+.cart-header, .subtotal { display: flex; justify-content: space-between; align-items: center; }
+.fechar { border: 0; background: transparent; font-size: 28px; }
+.cart-items { flex: 1; overflow-y: auto; }
+.cart-item { display: flex; justify-content: space-between; gap: 10px; padding: 12px 0; border-bottom: 1px solid #ddd; }
+.cart-item button { margin: 0 4px; }
+.cart-empty { text-align: center; margin: auto; }
+.cart-bottom { border-top: 1px solid #ddd; padding-top: 15px; }
+.nota { color: #687064; font-size: 12px; }
+.largura-total { width: 100%; }
+.continuar { width: 100%; margin-top: 10px; padding: 10px; border: 0; background: transparent; }
+.toast { position: fixed; right: 15px; bottom: 15px; z-index: 10; padding: 13px; background: #b7ff32; opacity: 0; pointer-events: none; }
+.toast.show { opacity: 1; }
+body.dark { background: #171b16; color: #f2f4ef; }
+body.dark .secao:not(.clubes), body.dark .ferramenta { background: #20271e; }
+body.dark .product-card, body.dark .pergunta, body.dark .resultado,
+body.dark .filtros input, body.dark .filtros select, body.dark .linha-ferramenta select {
+    background: #30382d; color: white; border-color: #485343;
+}
+body.dark .product-photo { background: #252d22; }
+body.dark .product-meta, body.dark .product-price small { color: #c0c8ba; }
+body.dark .sobre { background: #20271e; }
+@media (max-width: 850px) {
+    .products { grid-template-columns: repeat(2, 1fr); }
+    nav { gap: 10px; }
+}
+@media (max-width: 650px) {
+    .cabecalho { flex-wrap: wrap; }
+    .menu-toggle { display: block; margin-left: auto; padding: 8px 12px; }
+    nav { display: none; order: 3; width: 100%; flex-direction: column; align-items: flex-start; }
+    nav.open { display: flex; }
+    .acoes { gap: 5px; }
+    .banner-simbolo { display: none; }
+    .secao { padding: 40px 5%; }
+    .filtros { flex-direction: column; }
+    .products { gap: 10px; }
+    .product-photo { height: 170px; }
+    .product-bottom { align-items: stretch; flex-direction: column; }
+    .add-button { width: 100%; }
+    footer { align-items: flex-start; flex-direction: column; }
+}
+
+
+/* Login e criação de conta */
+.account-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    padding: 20px;
+    background: #000a;
+    align-items: center;
+    justify-content: center;
+}
+.account-backdrop.show { display: flex; }
+.account-modal {
+    position: relative;
+    width: min(420px, 100%);
+    padding: 30px;
+    background: white;
+    color: #20251e;
+    border-radius: 8px;
+}
+.account-close { position: absolute; top: 12px; right: 16px; }
+.account-tabs { display: flex; gap: 8px; margin: 18px 0; }
+.account-tab { flex: 1; padding: 10px; border: 1px solid #c9cec3; background: white; }
+.account-tab.active { background: #b7ff32; border-color: #b7ff32; font-weight: bold; }
+#account-form { display: grid; gap: 13px; }
+#account-form label { display: grid; gap: 6px; font-size: 14px; }
+#account-form input { width: 100%; padding: 12px; border: 1px solid #c9cec3; }
+.account-note { margin-bottom: 0; color: #687064; font-size: 12px; }
+
+/* Banner promocional flutuante com botão para fechar */
+.banner-flutuante {
+    position: fixed;
+    z-index: 12;
+    left: 18px;
+    bottom: 18px;
+    width: min(310px, calc(100% - 36px));
+    padding: 18px;
+    padding-right: 42px;
+    background: #111710;
+    color: white;
+    border-left: 5px solid #b7ff32;
+    box-shadow: 0 5px 22px #0004;
+}
+.banner-flutuante > button {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+}
+.banner-flutuante p { margin: 8px 0 12px; font-size: 13px; }
+.banner-flutuante a { color: #b7ff32; font-size: 12px; font-weight: bold; }
+.banner-flutuante.fechado { display: none; }
+@media (max-width: 650px) {
+    .acoes { flex-wrap: wrap; }
+    .banner-flutuante { left: 10px; bottom: 10px; }
+}
